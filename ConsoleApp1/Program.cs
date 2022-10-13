@@ -1,118 +1,137 @@
-﻿using System;
+﻿using System.Runtime.CompilerServices;
 
-Console.WriteLine("Выберете номер действия:");
-Console.WriteLine("1. Сложить два числа");
-Console.WriteLine("2. Вычесть первое из второго");
-Console.WriteLine("3. Перемножить два числа");
-Console.WriteLine("4. Разделить первое на второе");
-Console.WriteLine("5. Возвести в степень N первое число");
-Console.WriteLine("6. Найти квадратный корень из числа");
-Console.WriteLine("7. Найти 1 процент от числа");
-Console.WriteLine("8. Найти факториал из числа");
-Console.WriteLine("9. Выйти из программы");
-int a = 0;
-int c = 1;
-int i = 1;
-while (a < 10)
+static void Guesser()
 {
-    a = Convert.ToInt32(Console.ReadLine());
-
-        if (a == 1)
+    Random rand = new Random();
+    int x = rand.Next(0, 100); ;
+    int y;
+    Console.WriteLine("Случайное число от 1 до 100 загадано.");
+    do
     {
-        Console.WriteLine("Введите первое число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите второе число:");
-        int y = Convert.ToInt32(Console.ReadLine());
-        c = x + y;
-        Console.WriteLine("Сумма равна: " + c);
-        Console.WriteLine("Введите номер действия");
-    }
-        if (a == 2)
-    {
-        Console.WriteLine("Введите первое число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите второе число:");
-        int y = Convert.ToInt32(Console.ReadLine());
-        c = x - y;
-        Console.WriteLine("Разница равна: " + c);
-        Console.WriteLine("Введите номер действия");
-    }
-        if (a == 3)
-    {
-        Console.WriteLine("Введите первое число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите второе число:");
-        int y = Convert.ToInt32(Console.ReadLine());
-        c = x * y;
-        Console.WriteLine("Умножение равно: " + c);
-        Console.WriteLine("Введите номер действия");
-    }
-        if (a == 4)
-    {
-        Console.WriteLine("Введите первое число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите второе число:");
-        int y = Convert.ToInt32(Console.ReadLine());
-        c = x / y;
-        Console.WriteLine("Деление равно: " + c);
-        Console.WriteLine("Введите номер действия");
-    }
-        if (a == 5)
-    {
-        Console.WriteLine("Введите первое число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Введите второе число:");
-        int y = Convert.ToInt32(Console.ReadLine());
-        int s = 1;
-        for(i = 1; i <= y; i++)
-    {
-            s = s * x;
-    }
-        Console.WriteLine("Степень равна: " + s);
-        Console.WriteLine("Введите номер действия");
-    }
-        if (a == 6)
-    {
-        Console.WriteLine("Введите число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Квадратный корень числа равен: " + Math.Sqrt(x));
-        Console.WriteLine("Введите номер действия");
-    }
-        if (a == 7)
-    {
-        Console.WriteLine("Введите число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        c = x / 100;
-        Console.WriteLine("1 процент равен: " + c);
-        Console.WriteLine("Введите номер действия");
-    }
-        if (a == 8)
-    { 
-        Console.WriteLine("Введите число:");
-        int x = Convert.ToInt32(Console.ReadLine());
-        if (x == 0)
+        Console.WriteLine("Ваше предположение: ");
+        y = Convert.ToInt32(Console.ReadLine());
+        if (y == x)
         {
-            Console.WriteLine("Ошибка");
-            Console.WriteLine("Введите номер действия");
+            Console.WriteLine("ВЫ УГАДАЛИ УРААА");
         }
-        else
+        if (y > x)
         {
-            while (i != x)
-            {
-                i++;
-                c *= i;
-            }
-
-            Console.WriteLine("Факториал равен: " + c);
-            Console.WriteLine("Введите номер действия");
+            Console.WriteLine("Слишком большое");
         }
-
-    }
-        if (a == 9)
-    {
-        Environment.Exit(0);
-    }
-
-
+        if (y < x)
+        {
+            Console.WriteLine("Слишком маленькое");
+        }
+    } while (y != x);
 }
-Console.WriteLine("Ошибка"); 
+static void Tablitsa()
+{
+    int[,] tablitsa = new int[10, 10];
+    int x;
+    int y = 0;
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        tablitsa[x, 0] = x;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 1;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 2;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 3;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 4;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 5;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 6;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 7;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 8;
+        tablitsa[x, y] = x * y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        y = 9;
+        tablitsa[x, y] = x * y;
+    }
+    for (y = 0; y < tablitsa.GetLength(0); y++)
+    {
+        tablitsa[0, y] = y;
+    }
+    for (x = 0; x < tablitsa.GetLength(0); x++)
+    {
+        for (y = 0; y < tablitsa.GetLength(1); y++)
+        {
+            Console.Write(tablitsa[x, y] + "\t");
+        }
+        Console.WriteLine();
+    }
+}
+static void Deliteli()
+{
+    string a;
+    do
+    {
+
+        Console.WriteLine("Введите число. Что бы выйти введите 'выход'");
+        a = Console.ReadLine();
+        switch (a)
+        {
+            case "выход":
+                break;
+            default:
+                int x = Convert.ToInt32(a);
+                for (int i = 1; i <= x; i++)
+                {
+                    if (x % i == 0)
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+                break;
+        }
+    } while (a != "выход");
+}
+int m;
+do
+{
+
+    Console.WriteLine("Выберете программу: \n1 - Игра 'Угадай число' \n2 - Таблица умножения \n3 - Вывод делителей числа \n4 - Выход");
+    m = Convert.ToInt32(Console.ReadLine());
+    switch (m)
+    {
+        case 1:
+            Guesser();
+            break;
+        case 2:
+            Tablitsa();
+            break;
+        case 3:
+            Deliteli();
+            break;
+    }
+} while (m != 4);
