@@ -1,137 +1,208 @@
-﻿using System.Runtime.CompilerServices;
-
-static void Guesser()
+﻿int[] ChangeOctave(int kontainer)
 {
-    Random rand = new Random();
-    int x = rand.Next(0, 100); ;
-    int y;
-    Console.WriteLine("Случайное число от 1 до 100 загадано.");
-    do
+    int[] firstOct = new int[] { 130, 138, 146, 155, 164, 174, 185, 196, 207, 220, 233, 246 };
+    int[] secondOct = new int[] { 261, 277, 293, 311, 329, 349, 370, 392, 415, 440, 466, 493 };
+    int[] thirdOct = new int[] { 523, 554, 587, 622, 659, 698, 740, 784, 830, 880, 932, 987 };
+    int[] fourthOct = new int[] { 1047, 1109, 1175, 1245, 1319, 1397, 1480, 1568, 1661, 1760, 1865, 1976 };
+    int[] idk = new int[] {};
+    if (kontainer == 1)
     {
-        Console.WriteLine("Ваше предположение: ");
-        y = Convert.ToInt32(Console.ReadLine());
-        if (y == x)
-        {
-            Console.WriteLine("ВЫ УГАДАЛИ УРААА");
-        }
-        if (y > x)
-        {
-            Console.WriteLine("Слишком большое");
-        }
-        if (y < x)
-        {
-            Console.WriteLine("Слишком маленькое");
-        }
-    } while (y != x);
-}
-static void Tablitsa()
-{
-    int[,] tablitsa = new int[10, 10];
-    int x;
-    int y = 0;
-    for (x = 0; x < tablitsa.GetLength(0); x++)
-    {
-        tablitsa[x, 0] = x;
+        return firstOct;
     }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
+    else if (kontainer == 2)
     {
-        y = 1;
-        tablitsa[x, y] = x * y;
+        return secondOct;
     }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
+    else if (kontainer == 3)
     {
-        y = 2;
-        tablitsa[x, y] = x * y;
+        return thirdOct;
     }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
+    else if (kontainer == 4)
     {
-        y = 3;
-        tablitsa[x, y] = x * y;
+        return fourthOct;
     }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
+    else
     {
-        y = 4;
-        tablitsa[x, y] = x * y;
-    }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
-    {
-        y = 5;
-        tablitsa[x, y] = x * y;
-    }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
-    {
-        y = 6;
-        tablitsa[x, y] = x * y;
-    }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
-    {
-        y = 7;
-        tablitsa[x, y] = x * y;
-    }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
-    {
-        y = 8;
-        tablitsa[x, y] = x * y;
-    }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
-    {
-        y = 9;
-        tablitsa[x, y] = x * y;
-    }
-    for (y = 0; y < tablitsa.GetLength(0); y++)
-    {
-        tablitsa[0, y] = y;
-    }
-    for (x = 0; x < tablitsa.GetLength(0); x++)
-    {
-        for (y = 0; y < tablitsa.GetLength(1); y++)
-        {
-            Console.Write(tablitsa[x, y] + "\t");
-        }
-        Console.WriteLine();
+        return idk;
     }
 }
-static void Deliteli()
+int Oct(int[] octave, int konteiner)
 {
-    string a;
-    do
+    if (konteiner == 0)
     {
-
-        Console.WriteLine("Введите число. Что бы выйти введите 'выход'");
-        a = Console.ReadLine();
-        switch (a)
-        {
-            case "выход":
-                break;
-            default:
-                int x = Convert.ToInt32(a);
-                for (int i = 1; i <= x; i++)
-                {
-                    if (x % i == 0)
-                    {
-                        Console.WriteLine(i);
-                    }
-                }
-                break;
-        }
-    } while (a != "выход");
+        return octave[0];
+    }
+    else if (konteiner == 1)
+    {
+        return octave[1];
+    }
+    else if (konteiner == 2)
+    {
+        return octave[2];
+    }
+    else if (konteiner == 3)
+    {
+        return octave[3];
+    }
+    else if (konteiner == 4)
+    {
+        return octave[4];
+    }
+    else if (konteiner == 5)
+    {
+        return octave[5];
+    }
+    else if (konteiner == 6)
+    {
+        return octave[6];
+    }
+    else if (konteiner == 7)
+    {
+        return octave[7];
+    }
+    else if (konteiner == 8)
+    {
+        return octave[8];
+    }
+    else if (konteiner == 9)
+    {
+        return octave[9];
+    }
+    else if (konteiner == 10)
+    {
+        return octave[10];
+    }
+    else if (konteiner == 11)
+    {
+        return octave[11];
+    }
+    else
+    {
+        return octave[12];
+    }
 }
-int m;
+ConsoleKeyInfo n;
+Console.WriteLine("Переключение октав на клавиши 1, 2, 3 и 4");
+int[] selectedOctave = ChangeOctave(1);
+Console.WriteLine("Первая октава");
 do
 {
-
-    Console.WriteLine("Выберете программу: \n1 - Игра 'Угадай число' \n2 - Таблица умножения \n3 - Вывод делителей числа \n4 - Выход");
-    m = Convert.ToInt32(Console.ReadLine());
-    switch (m)
+    n = Console.ReadKey();
+    Console.Clear();
+    if (n.Key == ConsoleKey.B)
     {
-        case 1:
-            Guesser();
+        Console.Beep(587, 400);
+        Console.Beep(349, 400);
+        Console.Beep(466, 400);
+        Console.Beep(587, 400);
+        Console.Beep(784, 800);
+        Console.Beep(698, 800);
+        Console.Beep(587, 400);
+        Console.Beep(349, 400);
+        Console.Beep(466, 400);
+        Console.Beep(587, 400);
+        Console.Beep(784, 800);
+        Console.Beep(698, 800);
+        Console.Beep(587, 300);
+        Console.Beep(587, 1500);
+        Console.Beep(466, 300);
+        Console.Beep(523, 300);
+        Console.Beep(587, 300);
+        Console.Beep(587, 1500);
+        Console.Beep(587, 300);
+        Console.Beep(587, 300);
+        Console.Beep(622, 500);
+        Console.Beep(698, 800);
+        Console.Beep(622, 300);
+        Console.Beep(587, 300);
+        Console.Beep(523, 1000);
+        Console.Beep(523, 400);
+        Console.Beep(587, 300);
+        Console.Beep(622, 500);
+        Console.Beep(698, 800);
+        Console.Beep(622, 500);
+        Console.Beep(587, 500);
+        Console.Beep(523, 1000);
+    }
+    if (n.Key == ConsoleKey.M)
+    {
+        Console.Beep(587, 300);
+        Console.Beep(587, 300);
+        Console.Beep(1175, 400);
+        Console.Beep(880, 700);
+        Console.Beep(830, 300);
+        Console.Beep(784, 300);
+        Console.Beep(698, 300);
+        Console.Beep(587, 200);
+        Console.Beep(659, 200);
+        Console.Beep(698, 200);
+    }
+
+    switch (n.Key)
+    {
+        case ConsoleKey.D1:
+            selectedOctave = ChangeOctave(1);
+            Console.WriteLine("Первая октава");
             break;
-        case 2:
-            Tablitsa();
+        case ConsoleKey.D2:
+            selectedOctave = ChangeOctave(2);
+            Console.WriteLine("Вторая октава");
             break;
-        case 3:
-            Deliteli();
+        case ConsoleKey.D3:
+            selectedOctave = ChangeOctave(3);
+            Console.WriteLine("Третья октава");
+            break;
+        case ConsoleKey.D4:
+            selectedOctave = ChangeOctave(4);
+            Console.WriteLine("Четвертая октава");
+            break;
+        case ConsoleKey.A:
+            Console.Beep(Oct(selectedOctave, 0), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.W:
+            Console.Beep(Oct(selectedOctave, 1), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.S:
+            Console.Beep(Oct(selectedOctave, 2), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.E:
+            Console.Beep(Oct(selectedOctave, 3), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.D:
+            Console.Beep(Oct(selectedOctave, 4), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.F:
+            Console.Beep(Oct(selectedOctave, 5), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.T:
+            Console.Beep(Oct(selectedOctave, 6), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.G:
+            Console.Beep(Oct(selectedOctave, 7), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.Y:
+            Console.Beep(Oct(selectedOctave, 8), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.H:
+            Console.Beep(Oct(selectedOctave, 9), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.U:
+            Console.Beep(Oct(selectedOctave, 10), 700);
+            Console.Clear();
+            break;
+        case ConsoleKey.J:
+            Console.Beep(Oct(selectedOctave, 11), 700);
+            Console.Clear();
             break;
     }
-} while (m != 4);
+} while (n.Key != ConsoleKey.Escape);
